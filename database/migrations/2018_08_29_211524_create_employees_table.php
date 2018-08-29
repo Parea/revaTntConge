@@ -15,6 +15,13 @@ class CreateEmployeesTable extends Migration
     {
         Schema::create('employees', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('user_id');
+            $table->integer('service_id');
+            $table->integer('timeoff_granted');
+            $table->integer('timeoff_in_progress');
+            $table->integer('taken_timeoff');
+            $table->integer('total_timeoff');
+            $table->integer('active')->default(0);
             $table->timestamps();
         });
     }

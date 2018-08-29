@@ -15,6 +15,8 @@ class CreateTimeOffCountsTable extends Migration
     {
         Schema::create('time_off_counts', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('validation_timeoff_id');
+            $table->integer('employee_id');
             $table->timestamps();
         });
     }
