@@ -11,6 +11,6 @@ class ServiceDetailTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory('App\ServiceDetail', 25)->create();
     }
 }
