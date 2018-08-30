@@ -49,9 +49,9 @@ class UserController extends Controller {
 				'firstname' => 'required',
 				'email' => 'required|email',
 				'password' => 'required|min:6',
+				'avatar' => 'required',
 				'c_password' => 'required|same:password',
 				'user_type_id' => 'required',
-				'avatar' => 'required',
 			]);
 
 			if($validator->fails()) {
@@ -71,7 +71,7 @@ class UserController extends Controller {
 
 			$user = user::create($input);
 			$employee = Employee::select('*')->where('user_id', $user->id)->where('active', 1)->get()->first();
-			dd($employee);
+			//dd($employee);
 
 			$success['token'] =  $user->createToken('Laravel')->accessToken;
 				$success['id'] =  $user->id;
@@ -80,7 +80,7 @@ class UserController extends Controller {
 				$success['email'] =  $user->email;
 				$success['user_type_id'] =  $user->user_type_id;
 				$success['employee_id'] =  $employee['user_id'];
-				dd($success);
+				//dd($success);
 				return Response::json($success);
 		else:
 			return response::json(["error"=>"Vous n'avez pas les droits"]);

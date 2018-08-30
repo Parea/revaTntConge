@@ -22,6 +22,7 @@ class CreateEmployeesTable extends Migration
             $table->integer('taken_timeoff');
             $table->integer('total_timeoff');
             $table->integer('active')->default(0);
+            $table->integer('manager')->default(0);
             $table->timestamps();
         });
     }
