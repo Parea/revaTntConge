@@ -49,9 +49,9 @@ class UserController extends Controller {
 				'firstname' => 'required',
 				'email' => 'required|email',
 				'password' => 'required|min:6',
-				'avatar' => 'required',
 				'c_password' => 'required|same:password',
 				'user_type_id' => 'required',
+				'avatar' => 'required',
 			]);
 
 			if($validator->fails()) {
